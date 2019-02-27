@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tns:computers xmlns="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="./src/main/resources">
+           <!--tns:schemaLocation="./src/main/resources"-->
+
+    <tns:personal name="AMD">
+        <tns:origin>United States</tns:origin>
+        <tns:year>2019</tns:year>
+        <tns:price>550</tns:price>
+        <tns:RAM>16</tns:RAM>
+        <tns:ROM>256</tns:ROM>
+
+        <tns:keyboard_producer>Logiteck</tns:keyboard_producer>
+    </tns:personal>
+
+    <tns:personal name="q">
+        <tns:origin>China</tns:origin>
+        <tns:origin>China</tns:origin>
+        <tns:year>2017</tns:year>
+        <tns:price>700</tns:price>
+        <tns:RAM>32</tns:RAM>
+        <tns:ROM>128</tns:ROM>
+
+        <tns:keyboard_producer>Dialog</tns:keyboard_producer>
+    </tns:personal>
+
+    <tns:laptop name="HP">
+        <tns:origin>Spain</tns:origin>
+        <tns:year>2017</tns:year>
+        <tns:price>320</tns:price>
+        <tns:RAM>4</tns:RAM>
+        <tns:ROM>64</tns:ROM>
+
+        <tns:weight>2.4</tns:weight>
+        <tns:diagonal>14.1</tns:diagonal>
+    </tns:laptop>
+
+
+</tns:computers>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema"-->
+           <!--targetNamespace="computers">-->
+<tns:schema xmlns:tns = "http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified" targetNamespace="./src/main/resources">
+        <!--targetNamespace="http://www.example.com/computers"-->
+
+
+
+    <tns:element name="computers">
+        <tns:complexType>
+            <tns:sequence>
+                <tns:element name="personal" type="personal" minOccurs="1" maxOccurs="unbounded"/>
+                <tns:element name="laptop" type="laptop" minOccurs="1" maxOccurs="unbounded"/>
+            </tns:sequence>
+        </tns:complexType>
+    </tns:element>
+
+    <tns:complexType name = "computer" abstract="true">
+        <tns:sequence>
+            <tns:element name = "origin" type ="tns:string"/>
+            <tns:element name = "year" type ="tns:int"/>
+            <tns:element name = "price" type ="tns:double"/>
+            <tns:element name = "RAM" type ="tns:int"/>
+            <tns:element name = "ROM" type ="tns:int"/>
+        </tns:sequence>
+        <tns:attribute name="name" type="tns:string" use="required"/>
+    </tns:complexType>
+
+    <tns:complexType name= "personal">
+        <tns:complexContent>
+            <tns:extension base="computer">
+                <tns:sequence>
+                    <tns:element name = "keyboard_producer" type="tns:string"/>
+                </tns:sequence>
+            </tns:extension>
+        </tns:complexContent>
+    </tns:complexType>
+
+    <tns:complexType name="laptop">
+        <tns:complexContent>
+            <tns:extension base="computer">
+                <tns:sequence>
+                    <tns:element name = "weight" type ="tns:double"/>
+                    <tns:element name = "diagonal" type ="tns:double"/>
+                </tns:sequence>
+            </tns:extension>
+        </tns:complexContent>
+    </tns:complexType>
+
+    <tns:simpleType name = "origin">
+        <tns:restriction base="tns:string">
+            <tns:enumeration value="United States"/>
+            <tns:enumeration value="Spain"/>
+            <tns:enumeration value="China"/>
+            <tns:enumeration value="Japan"/>
+            <tns:enumeration value="Germany"/>
+            <tns:enumeration value="Netherlands"/>
+        </tns:restriction>
+    </tns:simpleType>
+
+    <tns:simpleType name="RAM">
+        <tns:restriction base="tns:int">
+            <tns:enumeration value= "2"/>
+            <tns:enumeration value= "4"/>
+            <tns:enumeration value="8"/>
+            <tns:enumeration value="16"/>
+            <tns:enumeration value="32"/>
+        </tns:restriction>
+    </tns:simpleType>
+
+    <tns:simpleType name="ROM">
+        <tns:restriction base="tns:int">
+            <tns:enumeration value="16" />
+            <tns:enumeration value="32"/>
+            <tns:enumeration value="64"/>
+            <tns:enumeration value="128"/>
+            <tns:enumeration value="256"/>
+            <tns:enumeration value="512"/>
+        </tns:restriction>
+    </tns:simpleType>
+
+    <tns:simpleType name ="keyboard_producer">
+        <tns:restriction base="tns:string">
+            <tns:enumeration value="Logiteck" />
+            <tns:enumeration value="Dialog"/>
+            <tns:enumeration value="ASUS"/>
+            <tns:enumeration value="D-Computer"/>
+            <tns:enumeration value="Razer"/>
+            <tns:enumeration value="Tracer"/>
+        </tns:restriction>
+    </tns:simpleType>
+
+    <tns:simpleType name = "name">
+        <tns:restriction base = "tns:string">
+            <tns:pattern value="[a-zA-z]+"/>
+        </tns:restriction>
+    </tns:simpleType>
+
+    <tns:simpleType name = "year">
+        <tns:restriction base = "tns:int">
+            <tns:minInclusive value="1983"/>    <!--in this year first computer was created-->
+            <tns:maxInclusive value="2019"/>    <!--current year-->
+        </tns:restriction>
+    </tns:simpleType>
+
+    <tns:simpleType name="price">
+        <tns:restriction base="tns:double">
+            <tns:minInclusive value="50"/>
+        </tns:restriction>
+    </tns:simpleType>
+
+    <tns:simpleType name="weight">
+        <tns:restriction base="tns:double">
+            <tns:minInclusive value="0,5"/>
+            <tns:maxInclusive value="10"/>
+        </tns:restriction>
+    </tns:simpleType>
+
+    <tns:simpleType name="diagonal">
+        <tns:restriction base="tns:double">
+            <tns:minInclusive value="3"/>
+            <tns:maxInclusive value="390"/>
+        </tns:restriction>
+    </tns:simpleType>
+
+</tns:schema>
