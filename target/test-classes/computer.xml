@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <computers xmlns="http://www.examle.com/computers"
+               xsi:noNamespaceSchemaLocation="computer.xsd"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+        <personal name="AMD">
+            <origin>United States</origin>
+            <year>2019</year>
+            <price>550</price>
+            <RAM>16</RAM>
+            <ROM>256</ROM>
+            <keyboard-producer>Logiteck</keyboard-producer>
+        </personal>
+
+
+        <personal name="Dell">
+            <origin>China</origin>
+            <year>2016</year>
+            <price>700</price>
+            <RAM>32</RAM>
+            <ROM>128</ROM>
+            <keyboard-producer>Dialog</keyboard-producer>
+        </personal>
+
+        <laptop name="HP">
+            <origin>Spain</origin>
+            <year>2017</year>
+            <price>320</price>
+            <RAM>4</RAM>
+            <ROM>64</ROM>
+            <weight>2.4</weight>
+            <diagonal>14.1</diagonal>
+        </laptop>
+
+
+
+    </computers>

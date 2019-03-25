@@ -2,30 +2,27 @@ package com.epam.computer.entity;
 
 import javax.xml.bind.annotation.*;
 
-@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Computer", propOrder = {
-        "origin", "year", "price", "RAM", "ROM"
-})
 
-public class Computer {
-    @XmlAttribute(required = true)
-    @XmlID
+@XmlType ( name = "computer", propOrder = {"origin", "year", "price", "RAM", "ROM"}, namespace="http://www.examle.com/computers")
+public abstract class Computer {
+
+    @XmlAttribute(name = "name")
     protected String name;
 
-    @XmlElement(required = true)
+    @XmlElement(name = "origin", namespace = "http://www.examle.com/computers")
     protected String origin;
 
-    @XmlElement(required = true)
+    @XmlElement(name = "year", namespace = "http://www.examle.com/computers")
     protected int year;
 
-    @XmlElement(required = true)
+    @XmlElement(name = "price", namespace = "http://www.examle.com/computers")
     protected double price;
 
-    @XmlElement(required = true)
+    @XmlElement(name = "RAM", namespace = "http://www.examle.com/computers")
     protected int RAM;
 
-    @XmlElement(required = true)
+    @XmlElement(name = "ROM", namespace = "http://www.examle.com/computers")
     protected int ROM;
 
     public Computer() {
@@ -40,25 +37,31 @@ public class Computer {
         this.ROM = ROM;
     }
 
+
     public String getName() {
         return name;
     }
+
 
     public String getOrigin() {
         return origin;
     }
 
+
     public int getYear() {
         return year;
     }
+
 
     public double getPrice() {
         return price;
     }
 
+
     public int getRAM() {
         return RAM;
     }
+
 
     public int getROM() {
         return ROM;
@@ -98,5 +101,52 @@ public class Computer {
                 ", RAM=" + RAM +
                 ", ROM=" + ROM +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+
+        Computer computer = (Computer) o;
+
+        if(year != computer.year) {
+            return false;
+        }
+        if(computer.price != price) {
+            return false;
+        }
+        if (RAM != computer.RAM) {
+            return false;
+        }
+        if (ROM != computer.ROM) {
+            return false;
+        }
+        if (!name.equals(computer.name)) {
+            return false;
+        }
+        if (!origin.equals(computer.origin)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int)(234 +
+                12*year +
+                32*price +
+                61*RAM +
+                3*ROM +
+                ((name == null)? 0:name.hashCode()) +
+                ((origin == null)? 0:origin.hashCode()));
     }
 }

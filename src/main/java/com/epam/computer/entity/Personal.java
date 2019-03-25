@@ -2,15 +2,13 @@ package com.epam.computer.entity;
 
 import javax.xml.bind.annotation.*;
 
-@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Personal", propOrder = {
-        "origin", "year", "price", "RAM", "ROM", "keyboard_producer"
-})
+@XmlRootElement (namespace="http://www.examle.com/computers", name = "personal")
+@XmlType (name = "Personal", namespace="http://www.examle.com/computers")
 
 public class Personal extends Computer {
 
-    @XmlElement(required = true)
+    @XmlElement(name = "keyboard-producer", namespace = "http://www.examle.com/computers")
     private String keyboard_producer;
 
     public Personal() {
@@ -20,6 +18,16 @@ public class Personal extends Computer {
         super(name, origin, year, price, RAM, ROM);
         this.keyboard_producer = keyboard_producer;
     }
+
+    public Personal(Computer computer){
+        super(computer.getName(), computer.getOrigin(), computer.getYear(),
+                computer.getPrice(), computer.getRAM(), computer.getROM());
+    }
+
+    public Personal(String keyboard_producer) {
+        this.keyboard_producer = keyboard_producer;
+    }
+
 
     public String getKeyboard_producer() {
         return keyboard_producer;
@@ -40,5 +48,30 @@ public class Personal extends Computer {
                 ", RAM=" + RAM +
                 ", ROM=" + ROM +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        Personal personal = (Personal) o;
+
+        return keyboard_producer.equals(personal.keyboard_producer);
+    }
+
+    @Override
+    public int hashCode() {
+        return (51*super.hashCode() + ((keyboard_producer== null)? 0 : 816));
     }
 }

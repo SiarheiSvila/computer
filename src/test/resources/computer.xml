@@ -1,39 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<tns:computers xmlns="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="./src/main/resources">
-           <!--tns:schemaLocation="./src/main/resources"-->
+<computers xmlns="http://www.examle.com/computers"
+               xsi:noNamespaceSchemaLocation="computer.xsd"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    <tns:personal name="AMD">
-        <tns:origin>United States</tns:origin>
-        <tns:year>2019</tns:year>
-        <tns:price>550</tns:price>
-        <tns:RAM>16</tns:RAM>
-        <tns:ROM>256</tns:ROM>
+    <personal name="AMD">
+        <origin>United States</origin>
+        <year>2019</year>
+        <price>550</price>
+        <RAM>16</RAM>
+        <ROM>256</ROM>
+        <keyboard-producer>Logiteck</keyboard-producer>
+    </personal>
 
-        <tns:keyboard_producer>Logiteck</tns:keyboard_producer>
-    </tns:personal>
+    <personal name="Dell">
+        <origin>China</origin>
+        <year>2016</year>
+        <price>700</price>
+        <RAM>32</RAM>
+        <ROM>128</ROM>
+        <keyboard-producer>Dialog</keyboard-producer>
+    </personal>
 
-    <tns:personal name="q">
-        <tns:origin>China</tns:origin>
-        <tns:origin>China</tns:origin>
-        <tns:year>2017</tns:year>
-        <tns:price>700</tns:price>
-        <tns:RAM>32</tns:RAM>
-        <tns:ROM>128</tns:ROM>
+    <laptop name="HP">
+        <origin>Spain</origin>
+        <year>2017</year>
+        <price>320</price>
+        <RAM>4</RAM>
+        <ROM>64</ROM>
+        <weight>2.4</weight>
+        <diagonal>14.1</diagonal>
+    </laptop>
 
-        <tns:keyboard_producer>Dialog</tns:keyboard_producer>
-    </tns:personal>
-
-    <tns:laptop name="HP">
-        <tns:origin>Spain</tns:origin>
-        <tns:year>2017</tns:year>
-        <tns:price>320</tns:price>
-        <tns:RAM>4</tns:RAM>
-        <tns:ROM>64</tns:ROM>
-
-        <tns:weight>2.4</tns:weight>
-        <tns:diagonal>14.1</tns:diagonal>
-    </tns:laptop>
-
-
-</tns:computers>
+</computers>
